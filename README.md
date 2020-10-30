@@ -52,6 +52,11 @@ init.d instructions coming soon
 
 ```
 mv ~/Downloads/my-wheel-model.zip ./wheel.5001.0.zip
+```
+
+Note: script stops and removes named models as needed.
+
+```
 ./mvie-autostart-models.sh
 ```
 
