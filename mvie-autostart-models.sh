@@ -36,8 +36,8 @@ do
   if [ "$(docker ps -q -f name=\^$M\$)" ]
   then
     echo $"stopping model $M"
-    #docker stop $M
-    #docker rm -f $M
+    docker stop $M
+    docker rm -f $M
   fi
 
   echo "deploying model $M, on port $P, using gpu $G ($fn)"
