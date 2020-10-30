@@ -4,17 +4,31 @@ DEPLOY="/opt/ibm/vision-edge/bin/deploy_zip_model.sh"
 
 MODELS="/opt/ibm/mvie-autostart-models"
 
+# check the filenames before starting
+for fn in $MODELS/*.zip
+do
+  F=$(basename $fn .zip) 
+  M=$(echo $F | cut -f1 -d.) # Model
+  P=$(echo $F | cut -f2 -d.) # Port
+  G=$(echo $F | cut -f3 -d.) # GPU
+  if [ -z "$M" || -z "$P" || -z "$G" ]
+  then
+    echo "ERROR: $fn isn't in the form model.port.gpu.zip"
+    exit 1
+  fi
+done
+
 for fn in $MODELS/*.zip
 do
 
   F=$(basename $fn .zip) 
-
   M=$(echo $F | cut -f1 -d.) # Model
   P=$(echo $F | cut -f2 -d.) # Port
   G=$(echo $F | cut -f3 -d.) # GPU
 
   # stop the model (if it's already running)
-  if [ $(docker ps -q -f name=\^$M\$) ]; then
+  if [ $(docker ps -q -f name=\^$M\$) ]
+  then
     echo $"stopping model $M"
     docker stop $M
     docker rm -f $M
@@ -24,4 +38,3 @@ do
   $DEPLOY --model $M --port $P --gpu $G $fn
 
 done
-

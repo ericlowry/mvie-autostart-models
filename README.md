@@ -31,19 +31,19 @@ Examples:
 cd /opt/ibm
 git clone https://github.com/ericlowry/mvie-autostart-models.git
 cd mvie-autostart-models
+chmod a+x mvie-autostart-models.sh
 ```
 
 2. Activate the script
 
 Tell your OS to call the script at start up.
 
-
-Ubuntu:
+On ubuntu:
 ```
 rc.local instructions coming soon
 ```
 
-Redhat:
+On redhat:
 ```
 init.d instructions coming soon
 ```
