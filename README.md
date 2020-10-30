@@ -34,8 +34,18 @@ cd mvie-autostart-models
 ```
 
 2. Activate the script
+
+Tell your OS to call the script at start up.
+
+
+Ubuntu:
 ```
-Coming soon
+rc.local instructions coming soon
+```
+
+Redhat:
+```
+init.d instructions coming soon
 ```
 
 3. Move models into autostart folder and test configuration.
