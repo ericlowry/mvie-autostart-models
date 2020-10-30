@@ -41,6 +41,6 @@ do
   fi
 
   echo "deploying model $M, on port $P, using gpu $G ($fn)"
-  #$DEPLOY --model $M --port $P --gpu $G $fn
+  $DEPLOY --model $M --port $P --gpu $G $fn
 
 done
