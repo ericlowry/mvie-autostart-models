@@ -11,8 +11,7 @@ do
   M=$(echo $F | cut -f1 -d.) # Model
   P=$(echo $F | cut -f2 -d.) # Port
   G=$(echo $F | cut -f3 -d.) # GPU
-  if [ -z "$M" || -z "$P" || -z "$G" ]
-  then
+  if [ -z "$M" ]; then
     echo "ERROR: $fn isn't in the form model.port.gpu.zip"
     exit 1
   fi
@@ -30,11 +29,11 @@ do
   if [ $(docker ps -q -f name=\^$M\$) ]
   then
     echo $"stopping model $M"
-    docker stop $M
-    docker rm -f $M
+    #docker stop $M
+    #docker rm -f $M
   fi
 
   echo "deploying model $M, on port $P, using gpu $G ($fn)"
-  $DEPLOY --model $M --port $P --gpu $G $fn
+  #$DEPLOY --model $M --port $P --gpu $G $fn
 
 done
