@@ -24,3 +24,4 @@ do
   $DEPLOY --model $M --port $P --gpu $G $fn
 
 done
+
