@@ -4,7 +4,7 @@ DEPLOY="/opt/ibm/vision-edge/bin/deploy_zip_model.sh"
 
 MODELS="/opt/ibm/mvie-autostart-models/*.zip"
 
-# check the filenames before starting
+# check all the filenames before starting
 for fn in $MODELS
 do
   if [ ! -f $fn ]; then
@@ -32,8 +32,8 @@ do
   P=$(echo $F | cut -f2 -d.) # Port
   G=$(echo $F | cut -f3 -d.) # GPU
 
-  # stop the model (if it's already running)
-  if [ "$(docker ps -q -f name=\^$M\$)" ]
+  # stop the model (if it exists in any form - running, exited, etc)
+  if [ "$(docker ps -a -q -f name=\^$M\$)" ]
   then
     echo $"stopping model $M"
     docker stop $M

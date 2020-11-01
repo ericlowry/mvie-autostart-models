@@ -40,7 +40,9 @@ Tell your OS to call the script at start up.
 
 On ubuntu:
 ```
-rc.local instructions coming soon
+touch /etc/rc.local
+echo "/opt/ibm/mvie-autostart-models/mvie-autostart-models.sh" > /etc/rc.local
+chmod a+x /etc/rc.local
 ```
 
 On redhat:
