@@ -66,7 +66,8 @@ mv ~/Downloads/my-wheel-model.zip ./wheel.5001.0.zip
 Note: script stops and removes named models as needed.
 
 ```
-./mvie-autostart-models.sh
+/etc/rc.local
+docker ps
 ```
 
 4. Restart and check your models
@@ -74,6 +75,9 @@ Note: script stops and removes named models as needed.
 shutdown -r now
 ```
 
+later:
 ```
-docker ps -q -f name=wheel
+docker ps
 ```
+
+(there should be a container for every model.zip file)
