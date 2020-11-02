@@ -43,6 +43,13 @@ On ubuntu:
 touch /etc/rc.local
 echo "/opt/ibm/mvie-autostart-models/mvie-autostart-models.sh" > /etc/rc.local
 chmod a+x /etc/rc.local
+nano /etc/rc.local
+```
+
+Edit `rc.local` to something like this:
+```bash
+#!/usr/bin/env bash
+/opt/ibm/mvie-autostart-models/mvie-autostart-models.sh
 ```
 
 On redhat:
